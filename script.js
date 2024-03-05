@@ -1,77 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    
+    const mainContainer = document.getElementById('main-container')
+    const dialogueBox = document.getElementById('dialogue-box')
     const bookcase = document.getElementById('bookcase')
+    const newBook = document.getElementById('btn')
 
-    let library = [
+    let submit = document.getElementById('submit')
+    let close = document.getElementById('close')
 
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-        
-        {'Title': 'Vision',
-        'Author': 'MK', 
-        'Pages' : '200'},
+    let library = []
 
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-        
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-        {'Title': 'Harry Potter',
-        'Author': 'JK Rowling',
-        'Pages': '200'}, 
-
-
-
-    ]
-
+    
     function createNewBook(array) {
 
         
@@ -102,6 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
             bookcase.append(book)
         }
     }
+    
+    newBook.addEventListener('click', () => {
+        dialogueBox.style.display = 'block'
+        mainContainer.style.filter = 'blur(5px)'
+    })
+
+    submit.addEventListener('click', (e) => {
+
+        e.preventDefault()
+
+        let name = document.getElementById('name').value
+        let author = document.getElementById('author').value
+        let pages = document.getElementById('pages').value
+        let checkbox = document.getElementById('checkbox').value
+
+        library.push(
+            {'Title': name,
+            'Author': author,
+            'Pages': pages}
+        )
+
+        createNewBook(library)
+
+    })
+
+    close.addEventListener('click', () => {
+        dialogueBox.style.display = 'none'
+        mainContainer.style.filter = 'blur(0px)'
+    })
 
     createNewBook(library)
     

@@ -8,10 +8,45 @@
     <script src = "script.js"></script>
 </head>
 <body>
-    <h1> Personal Library </h1>
-    <div class = "Bookcase" id = 'bookcase'>
-     
+    <div class = 'Main Container' id = 'main-container'>
+        
+        <div class = 'Left Session'>
+            <h1> Personal Library </h1>
+            <button id = 'btn'>+</button>
+        </div>
+
+        <div class = "Bookcase" id = 'bookcase'></div>
+
+        
     </div>
-    <button></button>
+    <div id = 'dialogue-box'>
+        <dialog open>
+            <div>
+                <h1> Enter your book!</h1>
+                <button id = 'close'>X</button>
+            </div>
+            <form>
+                <session>
+                    <label for = 'name'>Name: </label>
+                    <input type = 'text' name = 'name' id = 'name'>
+                </session>
+                <session>
+                    <label for = 'author'>Author: </label>
+                    <input type = 'text' name = 'author' id = 'author'>
+                </session>
+                <session>
+                    <label for = 'pages'>Pages: </label>
+                    <input type = 'text' name = 'pages' id = 'pages'>
+                </session>
+                <session>
+                    <label for = 'checkbox'> Read? </label>
+                    <input type = 'checkbox' name = 'checkbox' id = 'checkbox'>
+                </session>
+                <session>
+                    <input type = 'submit' id = 'submit'>
+                </session>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>
